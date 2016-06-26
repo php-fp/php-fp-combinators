@@ -1,0 +1,29 @@
+{
+    "authors": [
+        {
+            "name": "Tom",
+            "email": "tomjharding@live.co.uk"
+        }
+    ],
+    "autoload": {
+        "files": ["src/Combinators.php"]
+    },
+    "autoload-dev": {
+        "psr-4": {
+            "PhpFp\\Combinators\\Test\\": "test/"
+        }
+    },
+    "description": "A handful of funcitonal combinators in PHP.",
+    "homepage": "http://www.github.com/php-fp/php-fp-combinators",
+    "keywords": ["functional", "combinators"],
+    "license": "MIT",
+    "name": "php-fp/php-fp-combinators",
+    "scripts": {
+        "test": "vendor/bin/phpunit test"
+    },
+    "time": "2016-06-13",
+    "versions": "1.0.0",
+    "require-dev": {
+        "phpunit/phpunit": "^5.3"
+    }
+}
