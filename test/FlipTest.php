@@ -2,7 +2,7 @@
 
 namespace PhpFp\Combinators\Test;
 
-use function PhpFp\Combinators\Combinators\flip;
+use PhpFp\Combinators;
 
 class FlipTest extends \PHPUnit_Framework_TestCase
 {
@@ -13,7 +13,7 @@ class FlipTest extends \PHPUnit_Framework_TestCase
             return $x - $y;
         };
 
-        $subtractFrom = flip($subtract);
+        $subtractFrom = Combinators::flip($subtract);
 
         $this->assertEquals(
             $subtractFrom(2, 9),

@@ -2,7 +2,7 @@
 
 namespace PhpFp\Combinators\Test;
 
-use function PhpFp\Combinators\Combinators\compose;
+use PhpFp\Combinators;
 
 class ComposeTest extends \PHPUnit_Framework_TestCase
 {
@@ -18,7 +18,7 @@ class ComposeTest extends \PHPUnit_Framework_TestCase
             return $x / 2;
         };
 
-        $f = compose($halve, $inc);
+        $f = Combinators::compose($halve, $inc);
 
         $this->assertEquals(
             $f(3),

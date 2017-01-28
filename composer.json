@@ -13,7 +13,7 @@
             "PhpFp\\Combinators\\Test\\": "test/"
         }
     },
-    "description": "A handful of funcitonal combinators in PHP.",
+    "description": "A handful of functional combinators in PHP.",
     "homepage": "http://www.github.com/php-fp/php-fp-combinators",
     "keywords": ["functional", "combinators"],
     "license": "MIT",
@@ -22,8 +22,11 @@
         "test": "vendor/bin/phpunit test"
     },
     "time": "2016-06-13",
-    "versions": "1.0.0",
+    "versions": "2.0.0",
     "require-dev": {
         "phpunit/phpunit": "^5.3"
+    },
+    "require": {
+        "cypresslab/php-curry": "^0.4.0"
     }
 }

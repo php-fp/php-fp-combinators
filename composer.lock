@@ -4,9 +4,56 @@
         "Read more about it at https://getcomposer.org/doc/01-basic-usage.md#composer-lock-the-lock-file",
         "This file is @generated automatically"
     ],
-    "hash": "cafd7098ab949b5b964f7b6597441077",
-    "content-hash": "bc882366ccfc10b82601f3989614d6e2",
-    "packages": [],
+    "hash": "fe432ab713e3755a00c59c80451eb8c5",
+    "content-hash": "926867e781395edb9b9d785210bb7e40",
+    "packages": [
+        {
+            "name": "cypresslab/php-curry",
+            "version": "0.4.0",
+            "source": {
+                "type": "git",
+                "url": "https://github.com/matteosister/php-curry.git",
+                "reference": "9c5b3da0ff7c2504a583a7a73432c737dda5bbc0"
+            },
+            "dist": {
+                "type": "zip",
+                "url": "https://api.github.com/repos/matteosister/php-curry/zipball/9c5b3da0ff7c2504a583a7a73432c737dda5bbc0",
+                "reference": "9c5b3da0ff7c2504a583a7a73432c737dda5bbc0",
+                "shasum": ""
+            },
+            "require": {
+                "php": ">=5.3.2"
+            },
+            "require-dev": {
+                "phpspec/prophecy-phpunit": "~1.0",
+                "phpunit/phpunit": "~4.4"
+            },
+            "type": "library",
+            "extra": {
+                "branch-alias": {
+                    "dev-master": "1.0-dev"
+                }
+            },
+            "autoload": {
+                "psr-0": {
+                    "Cypress\\Curry": "src"
+                },
+                "files": [
+                    "src/Cypress/Curry/functions.php"
+                ]
+            },
+            "notification-url": "https://packagist.org/downloads/",
+            "license": [
+                "MIT"
+            ],
+            "description": "Curried functions in PHP",
+            "keywords": [
+                "curry",
+                "functional-programming"
+            ],
+            "time": "2016-07-05 19:14:07"
+        }
+    ],
     "packages-dev": [
         {
             "name": "doctrine/instantiator",

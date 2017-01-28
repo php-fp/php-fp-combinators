@@ -2,8 +2,7 @@
 
 namespace PhpFp\Combinators\Test;
 
-use function PhpFp\Combinators\Combinators\ifElse;
-use function PhpFp\Combinators\Combinators\K;
+use PhpFp\Combinators;
 
 class IfElseTest extends \PHPUnit_Framework_TestCase
 {
@@ -11,7 +10,14 @@ class IfElseTest extends \PHPUnit_Framework_TestCase
     {
         $isOdd = function ($x) { return $x % 2 === 1; };
 
-        $f = ifElse($isOdd, K('Oops!'), function ($x) { return "$x is even!"; });
+        $f = Combinators::ifElse(
+            $isOdd,
+            Combinators::K('Oops!'),
+            function ($x) {
+                return "$x is even!";
+            }
+        );
+
         $this->assertEquals($f(1), 'Oops!', 'Success');
         $this->assertEquals($f(2), '2 is even!', 'Failure');
     }
