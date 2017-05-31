@@ -126,7 +126,7 @@ assert('2 is even!' === $f(2));
 This function, also called the `Psi` combinator, allows you to call a function on transformations of values. This is really useful for things like sorting on particular properties of objects: we can call a compare function on two objects given a transformation. It's probably best illustrated with an example:
 
 ```php
-<?php
+use function PhpFp\on;
 
 // Get an array value.
 $prop = function ($k)
@@ -155,7 +155,7 @@ $test = [
     ['title' => 'something', 'test' => 4]
 ];
 
-array_column($sort($test, $f), 'title'); // ['goodbye', 'hello', 'something']
+assert(['goodbye', 'hello', 'something'] === $sort($test, $f), 'title');
 ```
 
 ## Contributing

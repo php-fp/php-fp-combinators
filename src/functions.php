@@ -66,3 +66,14 @@ function k($x): callable
     };
 }
 define('k', '\PhpFp\k');
+
+/**
+ * on :: (b, b -> c), (a -> b) -> a, a -> c
+ */
+function on(callable $f, callable $nt): callable
+{
+    return static function ($x, $y) use ($f, $nt) {
+        return $f($nt($x), $nt($y));
+    };
+}
+define('on', '\PhpFp\on');

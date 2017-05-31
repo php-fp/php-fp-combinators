@@ -14,6 +14,7 @@ and this project adheres to [Semantic Versioning](http://semver.org/).
 - `id()` function
 - `if_else()` function
 - `k()` (Kestrel) function
+- `on()` function
 
 ### Removed
 
