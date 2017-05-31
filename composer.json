@@ -15,7 +15,6 @@
             "PhpFp\\Combinators\\": "src/"
         },
         "files": [
-            "src/Combinators.php",
             "src/functions.php"
         ]
     },
