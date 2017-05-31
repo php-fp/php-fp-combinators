@@ -38,6 +38,6 @@
         "phpunit/phpunit": "^5.7"
     },
     "require": {
-        "cypresslab/php-curry": "^0.4.0"
+        "php": ">=7.0"
     }
 }

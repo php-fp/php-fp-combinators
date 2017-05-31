@@ -2,7 +2,7 @@
 
 namespace PhpFp;
 
-use Cypress\Curry as C;
+use function PhpFp\curry;
 
 class Combinators
 {
@@ -14,8 +14,8 @@ class Combinators
      */
     public static function __callStatic($name, array $args)
     {
-        $f = C\curry([self::class, "{$name}_"]);
-        return count($args) ? $f(... $args) : $f;
+        $f = curry([self::class, "{$name}_"]);
+        return count($args) ? $f(...$args) : $f;
     }
 
     /**
