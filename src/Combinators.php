@@ -19,17 +19,6 @@ class Combinators
     }
 
     /**
-     * Unary function composition.
-     * @param callable $f Outer function.
-     * @param callable $g Inner function.
-     * @return callable A composed unary function.
-     */
-    public static function compose_(callable $f, callable $g, $value)
-    {
-        return $f($g($value));
-    }
-
-    /**
      * Flip the arguments of a binary function.
      * @param callable $f The function to flip.
      * @return callable The flipped function.

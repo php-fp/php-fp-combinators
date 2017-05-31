@@ -45,12 +45,11 @@ assert('a:b' === $concat('a', 'b', ':'));
 Instead of writing `function ($x) { return f(g(x)); }`, `compose` allows us to express this as `compose('f', 'g')` (where the parameters could be closures, invokables, or anything that can be used as a "function"). Given two functions, `f` and `g`, a function will be returned that takes a value, `x`, and returns `f(g(x))`. This operation is _associative_, so `compose` calls can nest to create longer chains of functions. A simple, two-function example is shown here:
 
 ```php
-<?php
+use function PhpFp\compose;
 
-use PhpFp\Combinators as F;
+$strictUcFirst = compose('ucfirst', 'strtolower');
 
-$strictUcFirst = F::compose('ucfirst', 'strtolower');
-$strictUcFirst('HELLO, WORLD'); // Hello, world
+assert('Hello, world' === $strictUcFirst('HELLO, WORLD'));
 ```
 
 Note that the functions are called **from left to right**. If the opposite is desired, this can be achieved easily:
@@ -61,8 +60,8 @@ Note that the functions are called **from left to right**. If the opposite is de
 use PhpFp\Combinators as F;
 
 // The `flip` function is discussed later in this document.
-$pipe = flip(F::compose());
-$pipe($f, $g)($x) === $g($f($x));
+$pipe = F::flip(compose());
+assert($pipe($f, $g)($x) === $g($f($x));
 ```
 
 ### `flip :: (a, b -> c) -> (b, a) -> c`
