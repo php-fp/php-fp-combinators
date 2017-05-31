@@ -8,6 +8,38 @@ Combinators are simple functions that allow you to modify the behaviour of value
 
 These combinators aren't fully curried by default - mainly for optimisation reasons - but are designed so that most common use cases can be satisfied as is. Consequently, the type signatures use the comma (`,`) to represent multiple arguments.
 
+### `curry :: a -> b -> c`
+
+Transform a callable that takes multiple parameters into a callable that takes one parameter and returns another function any more parameters are needed.
+
+```php
+use function PhpFp\curry;
+
+$sum = curry(function ($a, $b, $c) {
+    return $a + $b + c;
+});
+
+// The following statements are all equivalent:
+assert(6 === $add(1, 2, 3));
+assert(6 === $add(1)(2)(3));
+assert(6 === $add(1, 2)(3));
+assert(6 === $add(1)(2, 3));
+```
+
+Note that currying ignores optional parameters. To curry optional parameters, set the arity:
+
+```php
+use function PhpFp\curry;
+
+$concat = function ($a, $b, $join = '') {
+    return $a . $join . $b;
+};
+$concat = curry($concat, 3);
+
+assert('a:b' === $concat('a', 'b', ':'));
+```
+
+
 ### `compose :: (b -> c), (a -> b) -> a -> c`
 
 Instead of writing `function ($x) { return f(g(x)); }`, `compose` allows us to express this as `compose('f', 'g')` (where the parameters could be closures, invokables, or anything that can be used as a "function"). Given two functions, `f` and `g`, a function will be returned that takes a value, `x`, and returns `f(g(x))`. This operation is _associative_, so `compose` calls can nest to create longer chains of functions. A simple, two-function example is shown here:

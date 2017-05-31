@@ -3,10 +3,21 @@
         {
             "name": "Tom",
             "email": "tomjharding@live.co.uk"
+        },
+        {
+            "name": "Woody Gilk",
+            "email": "woody.gilk@gmail.com",
+            "role": "Contributor"
         }
     ],
     "autoload": {
-        "files": ["src/Combinators.php"]
+        "psr-4": {
+            "PhpFp\\Combinators\\": "src/"
+        },
+        "files": [
+            "src/Combinators.php",
+            "src/functions.php"
+        ]
     },
     "autoload-dev": {
         "psr-4": {
