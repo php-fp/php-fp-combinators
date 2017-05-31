@@ -2,7 +2,9 @@
 
 namespace PhpFp\Combinators\Test;
 
-use PhpFp\Combinators;
+use function PhpFp\compose;
+use function PhpFp\curry;
+use function PhpFp\flip;
 
 class FlipTest extends \PHPUnit_Framework_TestCase
 {
@@ -13,12 +15,22 @@ class FlipTest extends \PHPUnit_Framework_TestCase
             return $x - $y;
         };
 
-        $subtractFrom = Combinators::flip($subtract);
+        $subtractFrom = flip($subtract);
 
         $this->assertEquals(
             $subtractFrom(2, 9),
             7,
             'Flips.'
         );
+
+    }
+
+    public function testFlipCompose()
+    {
+        $ucstrict = compose('ucfirst', 'strtolower');
+        $lcstrict = flip(curry(compose))('ucfirst', 'strtolower');
+
+        $this->assertSame('Abc', $ucstrict('ABC'));
+        $this->assertSame('abc', $lcstrict('ABC'));
     }
 }

@@ -26,6 +26,17 @@ function curry(callable $fn, int $arity = null): callable
 define('curry', '\PhpFp\curry');
 
 /**
+ * flip :: (a, b -> c) -> (b, a) -> c
+ */
+function flip(callable $f): callable
+{
+    return static function ($x, $y) use ($f) {
+        return $f($y, $x);
+    };
+}
+define('flip', '\PhpFp\flip');
+
+/**
  * k :: a -> b ->  a
  */
 function k($x): callable

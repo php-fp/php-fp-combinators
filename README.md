@@ -55,12 +55,11 @@ assert('Hello, world' === $strictUcFirst('HELLO, WORLD'));
 Note that the functions are called **from left to right**. If the opposite is desired, this can be achieved easily:
 
 ```php
-<?php
+use function PhpFp\compose;
+use function PhpFp\flip;
 
-use PhpFp\Combinators as F;
+$pipe = flip(compose());
 
-// The `flip` function is discussed later in this document.
-$pipe = F::flip(compose());
 assert($pipe($f, $g)($x) === $g($f($x));
 ```
 
@@ -69,14 +68,12 @@ assert($pipe($f, $g)($x) === $g($f($x));
 This function takes a two-argument function, and returns the same function with the arguments swapped round:
 
 ```php
-<?php
-
-use PhpFp\Combinators as F;
+use function PhpFp\flip;
 
 $divide = function ($x, $y) { return $x / $y; };
-$divideBy = F::flip($divide);
+$divideBy = flip($divide);
 
-$divideBy(2, 10); // 5
+assert(5 === $divideBy(2, 10));
 ```
 
 This function becomes much more useful for functions that are curried. It can be useful in composition chains and point-free expressions.

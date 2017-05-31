@@ -19,16 +19,6 @@ class Combinators
     }
 
     /**
-     * Flip the arguments of a binary function.
-     * @param callable $f The function to flip.
-     * @return callable The flipped function.
-     */
-    public static function flip_(callable $f, $y, $x)
-    {
-        return $f($x, $y);
-    }
-
-    /**
      * Identity combinator. Return the parameter.
      * @param mixed $x Anything in the world.
      * @return mixed Exactly what $x was.
