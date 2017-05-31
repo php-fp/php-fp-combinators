@@ -11,6 +11,7 @@ and this project adheres to [Semantic Versioning](http://semver.org/).
 - `compose()` function
 - `curry()` function
 - `flip()` function
+- `id()` function
 - `k()` (Kestrel) function
 
 ### Removed

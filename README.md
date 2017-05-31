@@ -83,12 +83,10 @@ This function becomes much more useful for functions that are curried. It can be
 Returns whatever it was given! Again, this is useful in composition chains for the times when you don't want to do anything to the value (see `converge`):
 
 ```php
-<?php
+use function PhpFp\id;
 
-use PhpFp\Combinators as F;
-
-F::id(2); // 2
-F::id('hello'); // hello
+assert(2 === id(2));
+assert('hello' === id('hello'));
 ```
 
 ### `ifElse :: (a -> Bool), (a -> b), (a -> b) -> a -> b`

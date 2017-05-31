@@ -37,6 +37,15 @@ function flip(callable $f): callable
 define('flip', '\PhpFp\flip');
 
 /**
+ * id :: a -> a
+ */
+function id($x)
+{
+    return $x;
+}
+define('id', '\PhpFp\id');
+
+/**
  * k :: a -> b ->  a
  */
 function k($x): callable

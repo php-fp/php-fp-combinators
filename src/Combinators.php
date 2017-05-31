@@ -19,16 +19,6 @@ class Combinators
     }
 
     /**
-     * Identity combinator. Return the parameter.
-     * @param mixed $x Anything in the world.
-     * @return mixed Exactly what $x was.
-     */
-    public static function id_($x)
-    {
-        return $x;
-    }
-
-    /**
      * Conditional branching.
      * @param callable $p A boolean predicate.
      * @param callable $f The "true" function.
