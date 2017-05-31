@@ -19,18 +19,6 @@ class Combinators
     }
 
     /**
-     * Conditional branching.
-     * @param callable $p A boolean predicate.
-     * @param callable $f The "true" function.
-     * @param callable $g The "false" function.
-     * @return mixed The result of the chosen function.
-     */
-    public static function ifElse_($p, $f, $g, $x)
-    {
-        return $p($x) ? $f($x) : $g($x);
-    }
-
-    /**
      * Psi combinator.
      * @param callable $f The outer function.
      * @param callable $nt The parameter transformer.

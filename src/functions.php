@@ -46,6 +46,17 @@ function id($x)
 define('id', '\PhpFp\id');
 
 /**
+ * if_else :: (a -> Bool), (a -> b), (a -> b) -> a -> b
+ */
+function if_else(callable $p, callable $f, callable $g): callable
+{
+    return function ($x) use ($p, $f, $g) {
+        return $p($x) ? $f($x) : $g($x);
+    };
+}
+define('if_else', '\PhpFp\if_else');
+
+/**
  * k :: a -> b ->  a
  */
 function k($x): callable

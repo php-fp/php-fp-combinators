@@ -94,17 +94,16 @@ assert('hello' === id('hello'));
 This function allows for conditionals in composition chains. Unlike `converge`, which branches and merges, `ifElse` chooses which function to run based on the predicate, and the other function is ignored:
 
 ```php
-<?php
-
-use PhpFp\Combinators as F;
+use function PhpFp\if_else;
 
 $isOdd = function ($x) { return $x % 2 === 1; };
 $odd = function ($x) { return $x * 3 + 1; };
 $even = function ($x) { return $x / 2; };
 
-$collatz = F::ifElse($isOdd, $odd, $even);
-$collatz(3); // 10
-$collatz(10); // 5
+$collatz = if_else($isOdd, $odd, $even);
+
+assert(10 === $collatz(3));
+assert(5 === $collatz(2));
 ```
 
 ### `k :: a -> b -> a`
@@ -112,15 +111,14 @@ $collatz(10); // 5
 This function takes a value, and then returns a function that always returns that value, regardless of what it receives. This creates a "constant" function to wrap a value in places where invocation is expected:
 
 ```php
-use PhpFp\Combinators as F;
-
 use function PhpFp\k;
 
 $isOdd = function ($x) { return $x % 2 === 1; };
 
-$f = F::ifElse($isOdd, k('Oops!'), function ($x) { return "$x is even!"; });
-$f(1); // 'Oops!'
-$f(2); // '2 is even!'
+$f = if_else($isOdd, k('Oops!'), function ($x) { return "$x is even!"; });
+
+assert('Oops!' === $f(1));
+assert('2 is even!' === $f(2));
 ```
 
 ### `on :: (b, b -> c), (a -> b) -> a, a -> c`

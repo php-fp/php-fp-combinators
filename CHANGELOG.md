@@ -12,6 +12,7 @@ and this project adheres to [Semantic Versioning](http://semver.org/).
 - `curry()` function
 - `flip()` function
 - `id()` function
+- `if_else()` function
 - `k()` (Kestrel) function
 
 ### Removed
