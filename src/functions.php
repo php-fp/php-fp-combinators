@@ -13,3 +13,14 @@ function curry(callable $fn, int $arity = null): callable
     return new Curry($fn, $arity);
 }
 define('curry', '\PhpFp\curry');
+
+/**
+ * k :: a -> b ->  a
+ */
+function k($x): callable
+{
+    return static function () use ($x) {
+        return $x;
+    };
+}
+define('k', '\PhpFp\k');

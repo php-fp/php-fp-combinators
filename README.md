@@ -113,18 +113,18 @@ $collatz(3); // 10
 $collatz(10); // 5
 ```
 
-### `K :: a -> b -> a`
+### `k :: a -> b -> a`
 
 This function takes a value, and then returns a function that always returns that value, regardless of what it receives. This creates a "constant" function to wrap a value in places where invocation is expected:
 
 ```php
-<?php
+use PhpFp\Combinators as F;
 
-use function PhpFp\Combinators;
+use function PhpFp\k;
 
 $isOdd = function ($x) { return $x % 2 === 1; };
 
-$f = F::ifElse($isOdd, K('Oops!'), function ($x) { return "$x is even!"; });
+$f = F::ifElse($isOdd, k('Oops!'), function ($x) { return "$x is even!"; });
 $f(1); // 'Oops!'
 $f(2); // '2 is even!'
 ```

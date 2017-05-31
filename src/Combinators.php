@@ -62,16 +62,6 @@ class Combinators
     }
 
     /**
-     * Constant function.
-     * @param mixed $x The constant value.
-     * @return callable A unary function that returns $x.
-     */
-    public static function K_($x, $_)
-    {
-        return $x;
-    }
-
-    /**
      * Psi combinator.
      * @param callable $f The outer function.
      * @param callable $nt The parameter transformer.

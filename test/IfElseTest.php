@@ -4,6 +4,8 @@ namespace PhpFp\Combinators\Test;
 
 use PhpFp\Combinators;
 
+use function PhpFp\k;
+
 class IfElseTest extends \PHPUnit_Framework_TestCase
 {
     public function testIfElse()
@@ -12,7 +14,7 @@ class IfElseTest extends \PHPUnit_Framework_TestCase
 
         $f = Combinators::ifElse(
             $isOdd,
-            Combinators::K('Oops!'),
+            k('Oops!'),
             function ($x) {
                 return "$x is even!";
             }
