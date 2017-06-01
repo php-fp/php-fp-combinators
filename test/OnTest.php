@@ -2,7 +2,7 @@
 
 namespace PhpFp\Combinators\Test;
 
-use PhpFp\Combinators;
+use function PhpFp\on;
 
 class OnTest extends \PHPUnit_Framework_TestCase
 {
@@ -19,7 +19,7 @@ class OnTest extends \PHPUnit_Framework_TestCase
         $sort = function ($xs, $f) use ($prop)
         {
             $ys = array_slice($xs, 0);
-            usort($ys, Combinators::on($f, $prop('test')));
+            usort($ys, on($f, $prop('test')));
 
             return $ys;
         };

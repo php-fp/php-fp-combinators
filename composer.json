@@ -3,10 +3,20 @@
         {
             "name": "Tom",
             "email": "tomjharding@live.co.uk"
+        },
+        {
+            "name": "Woody Gilk",
+            "email": "woody.gilk@gmail.com",
+            "role": "Contributor"
         }
     ],
     "autoload": {
-        "files": ["src/Combinators.php"]
+        "psr-4": {
+            "PhpFp\\Combinators\\": "src/"
+        },
+        "files": [
+            "src/functions.php"
+        ]
     },
     "autoload-dev": {
         "psr-4": {
@@ -27,6 +37,6 @@
         "phpunit/phpunit": "^5.7"
     },
     "require": {
-        "cypresslab/php-curry": "^0.4.0"
+        "php": ">=7.0"
     }
 }

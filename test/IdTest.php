@@ -2,7 +2,7 @@
 
 namespace PhpFp\Combinators\Test;
 
-use PhpFp\Combinators;
+use function PhpFp\id;
 
 class IdTest extends \PHPUnit_Framework_TestCase
 {
@@ -10,7 +10,7 @@ class IdTest extends \PHPUnit_Framework_TestCase
     {
         $this->assertEquals(
             2,
-            Combinators::id(2),
+            id(2),
             'Identity.'
         );
     }
