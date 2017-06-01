@@ -6,7 +6,7 @@ Combinators are simple functions that allow you to modify the behaviour of value
 
 ## API
 
-These combinators aren't fully curried by default - mainly for optimisation reasons - but are designed so that most common use cases can be satisfied as is. Consequently, the type signatures use the comma (`,`) to represent multiple arguments.
+By default, all of the combinators (except `curry`) are curried by default. If you prefer to avoid currying for performance, all of the literal combinators are available in the `PhpFp\Combinators\` namespace.
 
 ### `curry :: a -> b -> c`
 
@@ -52,7 +52,7 @@ $strictUcFirst = compose('ucfirst', 'strtolower');
 assert('Hello, world' === $strictUcFirst('HELLO, WORLD'));
 ```
 
-Note that the functions are called **from left to right**. If the opposite is desired, this can be achieved easily:
+Note that the functions are called **from left to right**. If the opposite is desired, this can be achieved easily by using `flip`:
 
 ```php
 use function PhpFp\compose;

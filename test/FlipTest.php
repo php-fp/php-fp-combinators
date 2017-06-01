@@ -3,7 +3,6 @@
 namespace PhpFp\Combinators\Test;
 
 use function PhpFp\compose;
-use function PhpFp\curry;
 use function PhpFp\flip;
 
 class FlipTest extends \PHPUnit_Framework_TestCase
@@ -22,13 +21,12 @@ class FlipTest extends \PHPUnit_Framework_TestCase
             7,
             'Flips.'
         );
-
     }
 
     public function testFlipCompose()
     {
         $ucstrict = compose('ucfirst', 'strtolower');
-        $lcstrict = flip(curry(compose))('ucfirst', 'strtolower');
+        $lcstrict = flip(compose())('ucfirst', 'strtolower');
 
         $this->assertSame('Abc', $ucstrict('ABC'));
         $this->assertSame('abc', $lcstrict('ABC'));

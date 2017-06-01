@@ -8,17 +8,15 @@ and this project adheres to [Semantic Versioning](http://semver.org/).
 
 ### Added
 
-- `compose()` function
-- `curry()` function
-- `flip()` function
-- `id()` function
-- `if_else()` function
-- `k()` (Kestrel) function
-- `on()` function
+- Add curried combinators as functions
 
 ### Removed
 
 - `Combinators` class has been removed in favor of function constructors
+
+### Changed
+
+- Switched to a custom implementation of `curry()`
 
 ## [1.0.0]
 

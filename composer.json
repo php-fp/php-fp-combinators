@@ -15,7 +15,8 @@
             "PhpFp\\Combinators\\": "src/"
         },
         "files": [
-            "src/functions.php"
+            "src/functions.php",
+            "src/curried.php"
         ]
     },
     "autoload-dev": {
