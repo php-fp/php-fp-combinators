@@ -2,13 +2,13 @@
 
 namespace PhpFp\Combinators\Test;
 
-use PhpFp\Combinators;
+use function PhpFp\k;
 
 class KTest extends \PHPUnit_Framework_TestCase
 {
     public function testK()
     {
-        $f = Combinators::K(3);
+        $f = k(3);
 
         $this->assertEquals(
             $f(2),
