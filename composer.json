@@ -16,7 +16,8 @@
         },
         "files": [
             "src/functions.php",
-            "src/curried.php"
+            "src/curried.php",
+            "src/partial.php"
         ]
     },
     "autoload-dev": {

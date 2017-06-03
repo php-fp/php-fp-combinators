@@ -39,6 +39,24 @@ $concat = curry($concat, 3);
 assert('a:b' === $concat('a', 'b', ':'));
 ```
 
+### `bind :: (b -> c) -> a -> c`
+
+Transforms a callable that takes multiple parameters into one that takes less parameters. Similar to `curry` but variadic and allows the usage of placeholders:
+
+```php
+use const PhpFp\_;
+use function PhpFp\bind;
+
+$dash = bind('implode', '-');
+
+assert('1-2-3' === $dash([1,2,3]));
+
+$cube = bind('pow', _, 3);
+
+assert(8 === $cube(2));
+```
+
+It is not recommended to use `curry` on a `bind` callable unless you specify an exact arity when calling `curry`, due to the bound callable being variadic.
 
 ### `compose :: (b -> c), (a -> b) -> a -> c`
 
