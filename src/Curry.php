@@ -7,7 +7,7 @@ use ReflectionFunction;
 use ReflectionMethod;
 use Reflector;
 
-final class Curry
+class Curry
 {
     /**
      * @var callable
@@ -27,7 +27,7 @@ final class Curry
     /**
      * Wrap a callable in a curry.
      */
-    public function __construct(callable $fn, $arity = null)
+    final public function __construct(callable $fn, $arity = null)
     {
         $this->fn = $fn;
         $this->arity = $arity ?? $this->numberOfParameters($fn);
@@ -37,20 +37,28 @@ final class Curry
     /**
      * Apply the curry with some parameters.
      */
-    public function __invoke(...$args)
+    final public function __invoke(...$args)
     {
-        $args = array_merge($this->args, $args);
+        $copy = clone $this;
+        $copy->args = array_merge($this->args, $args);
 
-        if (count($args) >= $this->arity) {
+        if ($copy->isComplete()) {
             // All parameters have been defined, execute the function
-            return call_user_func_array($this->fn, $args);
+            return static::apply($copy->fn, $copy->args);
         }
 
-        // Additional parameters are needed, return another curry
-        $copy = clone $this;
-        $copy->args = $args;
-
+        // Additional parameters are needed
         return $copy;
+    }
+
+    protected static function apply(callable $fn, array $args)
+    {
+        return $fn(...$args);
+    }
+
+    private function isComplete(): bool
+    {
+        return count($this->args) >= $this->arity;
     }
 
     private function reflect(callable $fn): Reflector

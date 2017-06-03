@@ -5,7 +5,8 @@ namespace PhpFp\Combinators\Test;
 use PHPUnit\Framework\TestCase;
 
 use function PhpFp\curry;
-use function PhpFp\curry_exactly;
+use function PhpFp\curry_right;
+use function PhpFp\flip;
 
 class CurryTest extends TestCase
 {
@@ -46,6 +47,30 @@ class CurryTest extends TestCase
             'Goodbye, test!',
             curry(sprintf('%s::%s', self::class, 'bye'))('test'),
             'It curries static methods.'
+        );
+    }
+
+    public function testCurryRight()
+    {
+        $cube = curry_right('pow')(3);
+
+        $this->assertSame(
+            8,
+            $cube(2),
+            'It curries from right to left.'
+        );
+
+        $concat = curry_right(static function ($a, $b, $join = '') {
+            return $a . $join . $b;
+        }, 3);
+
+        // $join is defined, pass $a, $b normally
+        $dot = flip($concat('.'));
+
+        $this->assertSame(
+            'a.b',
+            $dot('a', 'b'),
+            'The curry can be flipped.'
         );
     }
 

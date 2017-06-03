@@ -4,6 +4,7 @@ declare(strict_types=1);
 namespace PhpFp;
 
 use PhpFp\Combinators\Curry;
+use PhpFp\Combinators\CurryRight;
 
 /**
  * curry :: a -> b -> c
@@ -11,6 +12,14 @@ use PhpFp\Combinators\Curry;
 function curry(callable $fn, int $arity = null): callable
 {
     return new Curry($fn, $arity);
+}
+
+/**
+ * curry_right :: a -> b -> c
+ */
+function curry_right(callable $fn, int $arity = null): callable
+{
+    return new CurryRight($fn, $arity);
 }
 
 /**

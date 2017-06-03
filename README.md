@@ -39,6 +39,17 @@ $concat = curry($concat, 3);
 assert('a:b' === $concat('a', 'b', ':'));
 ```
 
+### `curry_right :: a -> b -> c`
+
+Works exactly the same as `curry` but defines parameters from right to left:
+
+```php
+use function PhpFp\curry_right;
+
+$cube = curry_right('pow')(3);
+
+assert(8 === $cube(2));
+```
 
 ### `compose :: (b -> c), (a -> b) -> a -> c`
 
